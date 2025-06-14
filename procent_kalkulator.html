@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator procentowy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .calculator {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    label, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kalkulator procentowy</h1>
+
+  <div class="calculator">
+    <h2>Oblicz procent z liczby</h2>
+    <label for="procent">Procent (%):</label>
+    <input type="number" id="procent">
+
+    <label for="liczba1">Liczba:</label>
+    <input type="number" id="liczba1">
+
+    <button onclick="obliczProcentZLiczby()">Oblicz</button>
+    <p class="result" id="wynik1"></p>
+  </div>
+
+  <div class="calculator">
+    <h2>Oblicz jaki to procent liczby</h2>
+    <label for="czesc">Część:</label>
+    <input type="number" id="czesc">
+
+    <label for="liczba2">Liczba:</label>
+    <input type="number" id="liczba2">
+
+    <button onclick="obliczProcentZCzesci()">Oblicz</button>
+    <p class="result" id="wynik2"></p>
+  </div>
+
+  <script>
+    function obliczProcentZLiczby() {
+      const procent = parseFloat(document.getElementById('procent').value);
+      const liczba = parseFloat(document.getElementById('liczba1').value);
+      if (isNaN(procent) || isNaN(liczba)) {
+        document.getElementById('wynik1').innerText = 'Wprowadź poprawne liczby';
+        return;
+      }
+      const wynik = (procent / 100) * liczba;
+      document.getElementById('wynik1').innerText = `${procent}% z ${liczba} to ${wynik}`;
+    }
+
+    function obliczProcentZCzesci() {
+      const czesc = parseFloat(document.getElementById('czesc').value);
+      const liczba = parseFloat(document.getElementById('liczba2').value);
+      if (isNaN(czesc) || isNaN(liczba) || liczba === 0) {
+        document.getElementById('wynik2').innerText = 'Wprowadź poprawne liczby';
+        return;
+      }
+      const wynik = (czesc / liczba) * 100;
+      document.getElementById('wynik2').innerText = `${czesc} to ${wynik.toFixed(2)}% z ${liczba}`;
+    }
+  </script>
+</body>
+</html>
