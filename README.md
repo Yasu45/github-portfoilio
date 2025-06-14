@@ -11,8 +11,7 @@ To moje małe portfolio, w którym prezentuję pierwsze projekty frontendowe stw
 ## 🌐 Demo online
 
 Możesz zobaczyć projekty na GitHub Pages:  
-👉 [Kliknij tutaj](https://twojanazwa.github.io/portfolio-github) *(podmień na swój prawdziwy link)*
-
+👉 [Kliknij tutaj](https://twojanazwa.github.io/portfolio-github) 
 ## 🛠 Technologie
 
 - HTML5
