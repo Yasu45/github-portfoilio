@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Licznik z osiągnięciami</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+      cursor: pointer;
+    }
+    #licznik {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    #czas {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #666;
+    }
+    .achievement {
+      font-size: 24px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .zielony { color: #4CAF50; }     /* zielony */
+    .rozowy { color: #E91E63; }     /* różowy */
+    .zolty { color: #FFEB3B; }      /* żółty */
+    .pomaranczowy { color: #FF9800; } /* pomarańczowy */
+  </style>
+</head>
+<body>
+  <h1>Klikaj gdziekolwiek!</h1>
+  <p>Kliknięcia są liczone przez 5 minut.</p>
+  
+  <div id="licznik">Kliknięcia: 0</div>
+  <div id="czas">Pozostały czas: 5:00</div>
+  <div id="osiagniecia"></div>
+
+  <script>
+    let klikniecia = 0;
+    let czas = 300;
+    let aktywny = true;
+    const osiagniete = new Set();
+
+    function sprawdzOsiagniecia() {
+      if (klikniecia >= 1000 && !osiagniete.has("zielony")) {
+        dodajOsiagniecie("Lirini Larilà", "zielony");
+      }
+      if (klikniecia >= 1500 && !osiagniete.has("rozowy")) {
+        dodajOsiagniecie("Brr Brr Patapim", "rozowy");
+      }
+      if (klikniecia >= 2000 && !osiagniete.has("zolty")) {
+        dodajOsiagniecie("Chimpanzini Bananini", "zolty");
+      }
+      if (klikniecia >= 2500 && !osiagniete.has("pomaranczowy")) {
+        dodajOsiagniecie("Tung Tung Tung Tung Tung Tung Tung Tung Tung Sahur", "pomaranczowy");
+      }
+    }
+
+    function dodajOsiagniecie(tekst, klasa) {
+      const div = document.createElement("div");
+      div.className = `achievement ${klasa}`;
+      div.textContent = `🏆 Osiągnięcie: ${tekst}`;
+      document.getElementById("osiagniecia").appendChild(div);
+      osiagniete.add(klasa);
+    }
+
+    const licznikCzasu = setInterval(() => {
+      if (czas > 0) {
+        czas--;
+        const minuty = Math.floor(czas / 60);
+        const sekundy = czas % 60;
+        document.getElementById("czas").textContent =
+          "Pozostały czas: " + minuty + ":" + (sekundy < 10 ? "0" : "") + sekundy;
+      } else {
+        aktywny = false;
+        clearInterval(licznikCzasu);
+        document.getElementById("czas").textContent = "Czas minął!";
+      }
+    }, 1000);
+
+    document.addEventListener("click", () => {
+      if (!aktywny) return;
+      klikniecia++;
+      document.getElementById("licznik").textContent = "Kliknięcia: " + klikniecia;
+      sprawdzOsiagniecia();
+    });
+  </script>
+</body>
+</html>
