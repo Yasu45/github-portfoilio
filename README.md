@@ -5,13 +5,15 @@ To moje małe portfolio, w którym prezentuję pierwsze projekty frontendowe stw
 
 ## 📁 Zawartość repozytorium
 
-- **TodoList.html** – prosta aplikacja typu To-Do list z możliwością dodawania i usuwania zadań.
-- **procenty.html** – kalkulator procentowy, który pomaga szybko policzyć wartości procentowe.
+- TodoList.html – prosta aplikacja typu To-Do list z możliwością dodawania i usuwania zadań.
+- procenty.html – kalkulator procentowy, który pomaga szybko policzyć wartości procentowe.
+- login and password.html - logowanie i reakcja na błędne hasło
+- oneclick - licznik kliknięć i przydzielacz osiągnięć za dany próg kilknięć
 
 ## 🌐 Demo online
 
 Możesz zobaczyć projekty na GitHub Pages:  
-👉 [Kliknij tutaj](https://twojanazwa.github.io/portfolio-github) 
+👉 [Kliknij tutaj](https://github.com/Yasu45/github-portfoilio.git) 
 ## 🛠 Technologie
 
 - HTML5
